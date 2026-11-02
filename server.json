@@ -1,0 +1,11 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.beexcellent/excellent",
+  "title": "Excellent",
+  "description": "Run your restaurant group's events, leads, invoices and marketing drafts from your AI assistant.",
+  "version": "1.0.0",
+  "websiteUrl": "https://beexcellent.ai/mcp",
+  "remotes": [
+    { "type": "streamable-http", "url": "https://beexcellent.ai/api/mcp" }
+  ]
+}

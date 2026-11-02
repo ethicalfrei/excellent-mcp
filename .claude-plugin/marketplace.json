@@ -1,0 +1,19 @@
+{
+  "name": "excellent",
+  "owner": {
+    "name": "Ethical Digital LLC",
+    "email": "support@beexcellent.ai"
+  },
+  "metadata": {
+    "description": "Excellent's official plugins for Claude."
+  },
+  "plugins": [
+    {
+      "name": "excellent",
+      "source": "./plugins/excellent",
+      "description": "Ready-made workflows for restaurant groups on Excellent: the morning brief across venues, lead follow-up, private-event space checks, event prep sheets, thank-you cards, the marketing week, money owed, the owner's weekly report and the staff schedule.",
+      "category": "productivity",
+      "homepage": "https://beexcellent.ai/mcp"
+    }
+  ]
+}
