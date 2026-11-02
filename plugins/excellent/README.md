@@ -2,11 +2,11 @@
 
 Ready-made workflows for restaurant groups on [Excellent](https://beexcellent.ai), the operating platform
 for private dining and events, marketing and staff. The plugin connects Claude to your Excellent workspace
-and adds nine skills that know how to answer the questions an events, marketing or operations lead asks
+and adds fourteen skills that know how to answer the questions an events, marketing or operations lead asks
 every week, using Excellent's own tools.
 
-You ask as yourself, with your own Excellent role. Claude reads your group's live data and stages drafts
-for a person to review and approve in Excellent.
+You ask as yourself, with your own Excellent role. Claude reads your group's live data, stages drafts for a
+person to review and decide in Excellent, and — on a connection you allowed to — makes changes you can undo.
 
 ## Skills
 
@@ -21,18 +21,26 @@ for a person to review and approve in Excellent.
 | `money-owed` | "Which deposits are still outstanding?" |
 | `weekly-owner-report` | "How are we pacing against this year's goal, and which location is behind?" |
 | `staff-schedule-check` | "Is next week covered? Any open shifts?" |
+| `book-this-inquiry` | "Book the Kim inquiry into the Garden Room for Saturday." |
+| `move-the-pipeline` | "Move this lead to tentative." / "They're 80 now, not 60." |
+| `build-event-documents` | "Build the BEO for the Adler wedding." |
+| `review-drafts` | "What's waiting for my approval?" |
+| `undo-a-change` | "Undo that." / "What did you change in Excellent?" |
 
 ## What it will and won't do
 
-- Every skill but two is read-only. `thank-you-cards` and `marketing-week` stage drafts in Excellent's
-  review queues and give you a link to each.
-- Nothing is published, approved, emailed or sent from Claude. A thank-you card is published from the event
-  page; a post or guest email is approved in Portfolio → Marketing, and only Excellent's consent-gated
-  engine sends it.
-- It never books, holds or blocks a room, records a payment, edits or publishes a shift, contacts a guest or
-  deletes anything. Reply text for an inquiry is drafted in the chat for you to send yourself.
-- Drafting needs a connection approved with draft access and a role that may draft marketing or event
-  content; without them the draft tools refuse and say why.
+- **Drafts** go to Excellent for a person: replies to inquiries, proposals, BEOs and contracts, invoices,
+  thank-you cards, posts and guest emails, pre-shift notes and shifts. Each answer carries a review link that
+  works only for you, signed in to Excellent; nothing is sent, published, finalized or shared until you decide
+  it there.
+- **Changes** (`book-this-inquiry`, `move-the-pipeline`, and the add-a-shift or add-staff steps) commit in
+  Excellent as you, one narrow change at a time, only on a connection approved with change access. Claude
+  says what it will change before it does, and every change returns a `change_id` that `undo` puts back for
+  30 days unless the record has changed since.
+- It never sends an email or text, takes or records a payment, publishes anything, approves its own drafts,
+  deletes a record or changes settings. Those stay with a person in Excellent.
+- Each tool needs the access your connection was approved with (read; drafts; changes) and the role in
+  Excellent the same action needs in the app; without them the tool refuses and says why.
 
 ## Use it
 

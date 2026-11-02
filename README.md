@@ -2,14 +2,14 @@
 
 # Excellent MCP connector
 
-Run your restaurant group's events, leads, invoices, staff schedule and marketing drafts from Claude and
-other AI assistants.
+Run your restaurant group's events, leads, contacts, invoices, documents, staff schedule and marketing from
+Claude and other AI assistants.
 
 [Excellent](https://beexcellent.ai) is the operating platform for restaurant groups: private dining and
 events (inquiries, proposals, e-signed contracts, banquet event orders, deposits and invoices), room
 availability, staff scheduling and training, and guest marketing. The Excellent connector is a hosted
-[MCP](https://modelcontextprotocol.io) server that lets an AI assistant read your group's workspace and
-stage drafts for your review when you ask it to.
+[MCP](https://modelcontextprotocol.io) server that lets an AI assistant read your group's workspace, stage
+drafts for your review, and — when you allow it — make everyday changes you can undo.
 
 | Server | URL | Sign-in | MCP Registry |
 |---|---|---|---|
@@ -17,7 +17,7 @@ stage drafts for your review when you ask it to.
 | Excellent Reference (free) | `https://beexcellent.ai/api/mcp/public` (Streamable HTTP) | None | `ai.beexcellent/reference` |
 
 - **Docs:** [beexcellent.ai/mcp](https://beexcellent.ai/mcp)
-- **Claude plugin:** [`plugins/excellent`](plugins/excellent) adds nine ready-made workflows on top of the
+- **Claude plugin:** [`plugins/excellent`](plugins/excellent) adds fourteen ready-made workflows on top of the
   connector.
 
 This repository holds documentation and the Claude plugin only. The connector is a hosted service, so there
@@ -37,9 +37,17 @@ is nothing to install or run.
 - Who is on shift today, and the week's coverage, open shifts and warnings
 - The marketing queue, and drafts of social posts (Instagram, Facebook, LinkedIn), bilingual guest emails
   and post-event thank-you cards
+- **Drafts for a person to decide in Excellent:** replies to inquiries, proposals, banquet event orders and
+  contracts priced from your own menus, invoices, the day's pre-shift note and staff shifts — each with a
+  review link that works only for you, signed in to Excellent
+- **Changes you can undo** (with change access): create and book events, hold or book rooms, move an event or
+  a lead along the pipeline, change a guest count or host, assign or snooze a lead, convert an inquiry into an
+  event, add contacts and notes, add staff and assign training. Every change returns a `change_id`, and
+  `undo` puts it back for 30 days unless someone has changed the record since
 
-Every write is a **draft**. Nothing is published, approved or sent until a person does it in Excellent.
-Booking, holding rooms, payments, publishing schedules and deleting anything stay in the Excellent app.
+Nothing is published, approved, sent, paid or deleted from an assistant. Sending a reply or an invoice,
+finalizing a document, publishing a schedule or a post, taking payments and deleting anything stay with a
+person in Excellent.
 
 The **free reference server** needs no account. It answers how Excellent works from its own help text
 (`excellent_help`), searches Excellent's public feature, comparison and blog pages
@@ -60,11 +68,17 @@ The **free reference server** needs no account. It answers how Excellent works f
 
 > Draft an Instagram post about our patio room using our recent events.
 
+> Book the Kim inquiry into the Garden Room for Saturday 6 to 11 and draft a reply confirming it.
+
+> Build the BEO for the Adler wedding.
+
+> They're 80 now, not 60 — update the Adler wedding. Actually, undo that.
+
 ## Connect
 
 You need an Excellent account on the team of the group you want to connect. The assistant sees only that
-group, acts as you with your role, and only after you approve the connection. To draft, tick draft access
-when you approve.
+group, acts as you with your role, and only after you approve the connection. To draft, tick **Also allow
+drafts** when you approve; to let it make changes you can undo, also tick **…and make changes you can undo**.
 
 ### Claude
 
@@ -129,7 +143,7 @@ client that only accepts a bearer token can use a scoped, expiring token you min
 ## Your data
 
 - You sign in with your own Excellent account and approve the connection. Each connection sees exactly one
-  group and can only read and draft what your role allows.
+  group and can only read, draft and change what your role allows.
 - Connections use OAuth 2.1 with PKCE and short-lived access tokens. No tool takes or returns a password.
 - You can see and disconnect your connections in Excellent under **Settings → AI assistant access**, or
   remove the connector from your AI app's settings.
