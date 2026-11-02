@@ -1,8 +1,8 @@
 {
   "name": "excellent",
   "displayName": "Excellent",
-  "version": "0.2.0",
-  "description": "Ready-made workflows for restaurant groups on Excellent: the morning brief across venues, lead follow-up and booking an inquiry, moving the pipeline, private-event space checks, event prep sheets and BEOs, thank-you cards, the marketing week, money owed and invoices, the owner's weekly report, the staff schedule, reviewing drafts and undoing a change. Drafts go to Excellent for a person to decide; changes can be undone.",
+  "version": "0.3.0",
+  "description": "Ready-made workflows for restaurant groups on Excellent: the morning brief across venues, lead follow-up and booking an inquiry, moving the pipeline, private-event space checks and room blocks, event prep sheets with seating, BEOs and event emails, thank-you cards, the marketing week, money owed and invoices, the owner's weekly report, the staff schedule, training the team, Partner pro formas, pitch decks and investor updates, importing a list, reviewing drafts and undoing a change. Drafts go to Excellent for a person to decide; changes can be undone.",
   "author": {
     "name": "Excellent AI LLC",
     "url": "https://beexcellent.ai"
@@ -20,6 +20,8 @@
     "events",
     "catering",
     "marketing",
-    "staff scheduling"
+    "staff scheduling",
+    "staff training",
+    "investor updates"
   ]
 }

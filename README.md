@@ -2,8 +2,8 @@
 
 # Excellent MCP connector
 
-Run your restaurant group's events, leads, contacts, invoices, documents, staff schedule and marketing from
-Claude and other AI assistants.
+Run your restaurant group's events, leads, contacts, invoices, documents, staff schedule and training,
+marketing and investor documents from Claude and other AI assistants.
 
 [Excellent](https://beexcellent.ai) is the operating platform for restaurant groups: private dining and
 events (inquiries, proposals, e-signed contracts, banquet event orders, deposits and invoices), room
@@ -17,7 +17,9 @@ drafts for your review, and — when you allow it — make everyday changes you 
 | Excellent Reference (free) | `https://beexcellent.ai/api/mcp/public` (Streamable HTTP) | None | `ai.beexcellent/reference` |
 
 - **Docs:** [beexcellent.ai/mcp](https://beexcellent.ai/mcp)
-- **Claude plugin:** [`plugins/excellent`](plugins/excellent) adds fourteen ready-made workflows on top of the
+- **Tools:** the signed-in connector lists 72 tools — 70 for your group's records (19 that read, 20 that
+  draft, 31 that make changes you can undo) and the free server's two read tools.
+- **Claude plugin:** [`plugins/excellent`](plugins/excellent) adds seventeen ready-made workflows on top of the
   connector.
 
 This repository holds documentation and the Claude plugin only. The connector is a hosted service, so there
@@ -28,26 +30,34 @@ is nothing to install or run.
 - What the coming days hold by venue: bookings, holds about to lapse, payments coming due and inquiries
   nobody has answered
 - One event in full: host and contacts, menu (and where the contract, proposal and BEOs disagree),
-  documents and signatures, invoices, installments and payments
+  documents and signatures, invoices, installments and payments, and its seating and custom fields
 - Which rooms fit a party size and when they are free on a given day
 - Search across events, leads, contacts, invoices, documents and rooms
 - Lists of events, leads, contacts, rooms, invoices and documents
 - The Events report: revenue booked, collected and outstanding, pace against goal, pipeline, win rate, lead
   sources and the per-venue rollup
-- Who is on shift today, and the week's coverage, open shifts and warnings
+- Who is on shift today, and the week's coverage, open shifts and warnings; the training roster's people,
+  courses and competencies
 - The marketing queue, and drafts of social posts (Instagram, Facebook, LinkedIn), bilingual guest emails
   and post-event thank-you cards
 - **Drafts for a person to decide in Excellent:** replies to inquiries, proposals, banquet event orders and
-  contracts priced from your own menus, invoices, the day's pre-shift note and staff shifts — each with a
-  review link that works only for you, signed in to Excellent
-- **Changes you can undo** (with change access): create and book events, hold or book rooms, move an event or
-  a lead along the pipeline, change a guest count or host, assign or snooze a lead, convert an inquiry into an
-  event, add contacts and notes, add staff and assign training. Every change returns a `change_id`, and
-  `undo` puts it back for 30 days unless someone has changed the record since
+  contracts priced from your own menus, invoices and their payment installments, the day's pre-shift note,
+  staff shifts, training courses built from your own lessons and SOPs, new words for the automatic event
+  emails, Excellent Partner pro formas, pitch decks and investor updates (the assistant writes the narrative,
+  Excellent computes every figure from your records), and imports of contacts, menu items, inquiries, past
+  events, the staff roster or a posting plan — each with a review link that works only for you, signed in to
+  Excellent. A post, campaign or invoice still in draft can be revised the same way
+- **Changes you can undo** (with change access): create and book events, hold, block or book rooms, close a
+  venue for a day, turn a hold into an event, give an event extra rooms, seat tables and fill in custom
+  fields, move an event or a lead along the pipeline, change a guest count or host, assign or snooze a lead,
+  convert an inquiry into an event, add contacts and notes and keep look-alike contacts apart, add staff,
+  correct their details, define and assign competencies and courses, add investor contacts and create
+  marketing lists. Every change returns a `change_id`, and `undo` puts it back, once, for 30 days unless
+  someone has changed the record since
 
-Nothing is published, approved, sent, paid or deleted from an assistant. Sending a reply or an invoice,
-finalizing a document, publishing a schedule or a post, taking payments and deleting anything stay with a
-person in Excellent.
+Nothing is published, approved, sent, paid, imported or deleted from an assistant. Sending a reply or an
+invoice, finalizing a document, publishing a schedule, a post, a course or an email, committing an import,
+taking payments and deleting anything stay with a person in Excellent.
 
 The **free reference server** needs no account. It answers how Excellent works from its own help text
 (`excellent_help`), searches Excellent's public feature, comparison and blog pages
@@ -73,6 +83,12 @@ The **free reference server** needs no account. It answers how Excellent works f
 > Build the BEO for the Adler wedding.
 
 > They're 80 now, not 60 — update the Adler wedding. Actually, undo that.
+
+> We're closed on Thanksgiving — block the Mission venue for the day.
+
+> Draft our Q3 investor update and lead with how bookings grew.
+
+> Import this list of contacts from our old system.
 
 ## Connect
 
