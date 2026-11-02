@@ -5,7 +5,7 @@ description: Check whether a private event fits — which rooms at which venues 
 
 # Private-event space check
 
-Read-only. A free stretch is not a reservation: only a person books, holds or blocks a room, in Excellent.
+Read-only. A free stretch is not a reservation. To book or hold a room for an inquiry, use the `book-this-inquiry` skill.
 
 ## 1. Pin down the ask
 

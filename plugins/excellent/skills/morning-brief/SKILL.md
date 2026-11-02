@@ -1,11 +1,11 @@
 ---
 name: morning-brief
-description: The morning brief for a restaurant group on Excellent — today's and tomorrow's events per venue, holds that need a decision, payments coming due, unanswered inquiries and who is on shift. Use for "what's on today", "morning brief", "what needs me today", "give me the rundown across our venues".
+description: The morning brief for a restaurant group on Excellent — today's and tomorrow's events per venue, holds that need a decision, payments coming due, unanswered inquiries and who is on shift. Use for "what's on today", "morning brief", "what needs me today", "give me the rundown across our venues", "draft today's pre-shift note".
 ---
 
 # Morning brief across venues
 
-Read-only. This skill changes nothing in Excellent.
+Read-only, except the optional pre-shift note at the end, which is staged as a draft for a person to publish.
 
 ## 1. Collect
 
@@ -41,3 +41,10 @@ Amounts arrive in minor units (cents): divide by 100 and show them as money. Mar
 
 Offer, don't do: open one event in full with `get_event`, triage the waiting inquiries (the lead-follow-up
 skill), or check the staff week (the staff-schedule-check skill).
+
+## Pre-shift note (if asked)
+
+If the person wants today's pre-shift note, write it from what the brief found (the events, guest counts,
+VIPs and timings) and show it first. Then stage it with `draft_preshift_note` (`date`, `body_en`, and
+`body_es` when the team reads Spanish). A day that already has a note is left as it is. Give back the review
+link: the note reaches staff only when a person publishes it in Excellent.

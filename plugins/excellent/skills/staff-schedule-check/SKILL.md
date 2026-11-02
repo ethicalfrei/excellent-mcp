@@ -1,11 +1,12 @@
 ---
 name: staff-schedule-check
-description: Check a restaurant group's staff schedule in Excellent — who is on today, the week's coverage per venue, open shifts, stretches of opening hours nobody covers, scheduling warnings and what staff can't see yet. Use for "who's on tonight", "is the week covered", "any open shifts", "check next week's schedule".
+description: Check a restaurant group's staff schedule in Excellent — who is on today, the week's coverage per venue, open shifts, stretches of opening hours nobody covers, scheduling warnings and what staff can't see yet. Use for "who's on tonight", "is the week covered", "any open shifts", "check next week's schedule", "add a closing server on Friday", "fill the open Saturday brunch shift".
 ---
 
 # Staff schedule check
 
-Read-only. This skill never edits, publishes or assigns a shift; that happens in Excellent.
+This skill reads, and can add draft shifts. It never publishes a week or tells staff anything: shifts it
+adds stay in the week's draft until a person publishes the week in Excellent.
 
 ## 1. Collect
 
@@ -30,3 +31,11 @@ Per venue:
 - **Busy days** — days with large events next to the people scheduled by role.
 
 End with the three most important fixes for a person to make in Excellent, most urgent first.
+
+## 3. Fill a gap (if asked)
+
+To cover an open stretch, `draft_shift` with the `location`, the venue `date`, `start` and `end` on the
+venue's clock (HH:MM; an end at or before the start runs past midnight), the `role`, and the person's
+`staff_id` from the schedule tools' roster (leave it out for an open shift). Read each shift back before
+adding it. Give back the review link, and say staff see nothing until someone publishes the week in
+Excellent.
