@@ -39,7 +39,8 @@ for a person to review and approve in Excellent.
 1. Install the plugin. In Claude Code:
 
    ```
-   /plugin install excellent --marketplace ethicalfrei/excellent-mcp
+   /plugin marketplace add ethicalfrei/excellent-mcp
+   /plugin install excellent@excellent
    ```
 
    Then connect the **Excellent** connector (in Claude Code, run `/mcp`) and sign in to
