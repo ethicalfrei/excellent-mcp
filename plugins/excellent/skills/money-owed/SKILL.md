@@ -1,11 +1,12 @@
 ---
 name: money-owed
-description: A digest of what's still owed on events in Excellent — deposits and installments coming due or overdue, partly paid and unpaid invoices, by venue and event date. Use for "which deposits are outstanding", "unpaid invoices", "who owes us money", "payments due this week".
+description: A digest of what's still owed on events in Excellent — deposits and installments coming due or overdue, partly paid and unpaid invoices, by venue and event date. Use for "which deposits are outstanding", "unpaid invoices", "who owes us money", "payments due this week", "draft the invoice for the Adler wedding".
 ---
 
 # Money owed digest
 
-Read-only. This skill never charges, records a payment or contacts a guest.
+This skill reads, and can draft an invoice. It never charges, records a payment, sends an invoice or contacts
+a guest.
 
 ## 1. Collect
 
@@ -34,3 +35,12 @@ divide by 100. Mark sample data (`is_sample: true`) and keep it out of the total
 
 Offer, don't do: reminder wording can be drafted in this chat for a person to send; collecting payment
 happens in Excellent.
+
+## 3. Draft a missing invoice (if asked)
+
+For a booked event with no invoice, `get_event` shows what was agreed (the contract's or proposal's menu and
+client total). Draft the invoice with `draft_invoice`: the `event_id`, its `lines` (each a `label`, a whole
+`qty` and a `unit_price_minor` in cents, taken from what was agreed — never an invented price), and any
+`tax_minor` / `fee_minor` the agreement states. Excellent computes the totals and the deposit from the
+group's deposit schedule. Give back the figures and the review link: the person checks it and sends it from
+the invoice page in Excellent. Nothing is sent from here.

@@ -5,7 +5,7 @@ description: Build a prep sheet for the coming days' events from Excellent — h
 
 # Event prep sheet
 
-Read-only. This skill changes nothing in Excellent.
+Read-only. To draft a missing or stale BEO, proposal or contract, use the `build-event-documents` skill.
 
 ## 1. Collect
 
@@ -35,4 +35,6 @@ Read-only. This skill changes nothing in Excellent.
 
 Amounts arrive in minor units (cents): divide by 100. Mark sample data (`is_sample: true`).
 
-Offer, don't do: fixes happen in Excellent by a person (updating the BEO, chasing a signature).
+Offer, don't do: fixes happen in Excellent by a person (chasing a signature, finalizing a document). If an
+event has no BEO, or its BEO disagrees with the contract, offer to draft a fresh one with the
+`build-event-documents` skill.
