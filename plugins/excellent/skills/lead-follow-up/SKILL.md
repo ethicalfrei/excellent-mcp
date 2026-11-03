@@ -18,8 +18,9 @@ size and what they wrote, check its rooms as in step 3 below, and go straight to
 2. `agenda` (default 7 days) — its `leads_waiting` names the inquiries nobody has answered yet, which is the
    most urgent set.
 3. For each inquiry that names a date and a party size, call `space_availability` with that `date` and
-   `party_size` (for a group with several venues, the venue's `location` from `overview`). Each room says `fits_party` and lists its `free` stretches. A free stretch is not a
-   reservation: only a person books, in Excellent.
+   `party_size` (for a group with several venues, the venue's `location` from `overview`). Each room says
+   `fits_party` and lists its `free` stretches. A free stretch is not a reservation: only a person books, in
+   Excellent.
 4. If an inquiry looks like a returning host, `search` their name or email to find past events.
 
 ## 2. Write the triage

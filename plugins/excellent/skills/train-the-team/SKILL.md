@@ -27,9 +27,8 @@ guessing.
    group's standing rules give that role or venue are assigned at once: say which ones came back.
 2. Anything else: agree who gets what and by when, and read the list back (each person, the course or
    competency, the due date). Then `assign_course` with the `staff_id`, a published `course_id` and an
-   optional `due_on`;
-   `assign_competency` the same way with a `competency_id`. One they already have answers that assignment and
-   changes nothing.
+   optional `due_on`; `assign_competency` the same way with a `competency_id`. One they already have answers
+   that assignment and changes nothing.
 
 For a whole staff list at once, stage it as a roster import with the `import-a-list` skill.
 
