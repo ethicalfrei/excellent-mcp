@@ -1,6 +1,6 @@
 ---
 name: move-the-pipeline
-description: Move leads and events along Excellent's pipeline in plain words — set a lead's status, snooze or assign it, move an event to tentative, confirmed, completed or lost, change its guest count, title or host — each change undoable. Use for "move this lead to tentative", "confirm the Adler wedding", "mark the gala lost", "snooze this inquiry until Monday", "assign the Kim lead to Maria", "they're 80 now, not 60".
+description: Move leads and events along Excellent's pipeline in plain words — set a lead's status, snooze or assign it, move an event to tentative, confirmed, completed or lost, change its guest count, title, host or rooms, turn a room hold into an event — each change undoable. Use for "move this lead to tentative", "confirm the Adler wedding", "mark the gala lost", "snooze this inquiry until Monday", "assign the Kim lead to Maria", "they're 80 now, not 60", "the Kim hold on the terrace is a booking now", "Dana Kim and Dana Kim-Lee are different people".
 ---
 
 # Move the pipeline
@@ -31,9 +31,16 @@ event, read back its title, date, stage, guest count and room before changing it
 | "the host is Dana Kim now" | `set_event_host` (`party_id` of a contact, or `host_name` + `host_email`) |
 | "add the planner, Jo, to the event" | `add_event_contact` (`party_id`, `role`) |
 | "move them to the Garden Room, 6 to 11" | `book_room` |
+| "they want the Hall too, for dinner" | `set_event_rooms` (every extra room as `{ space }`; the list replaces the current extra rooms) |
+| "the Kim hold on the terrace is a booking now" | `convert_hold_to_event` (`hold_id` from `space_availability` or `agenda`; optional `title`, `party_size`) |
+| "Dana Kim and Dana Kim-Lee are different people" | `dismiss_duplicate_contacts` (two to twenty `{ party_id }`; nothing is merged or changed on them) |
 
-A lead moved to an event's stage goes through `convert_lead_to_event` first, then `set_event_status`. If a
-change is refused — a hold on the room, a double booking, a block, capacity — say why in plain words and
+A lead moved to an event's stage goes through `convert_lead_to_event` first, then `set_event_status`.
+Converting a hold makes a tentative event in the hold's room and window, its holder the host; the holds queued
+behind it move up. It is refused while another hold is ahead of it, and once it has been released or has
+lapsed.
+
+If a change is refused — a hold on the room, a double booking, a block, capacity — say why in plain words and
 offer what would work. Never retry around a refusal.
 
 ## 3. Wrap up

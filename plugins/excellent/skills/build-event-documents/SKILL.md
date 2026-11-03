@@ -1,6 +1,6 @@
 ---
 name: build-event-documents
-description: Draft a private event's proposal, banquet event order (BEO) or contract in Excellent from the event's own facts and the venue's own menu prices, for a person to review, finalize and send in Excellent. Use for "build the BEO for the Adler wedding", "draft a proposal for this event", "generate the contract for Saturday's party", "the BEO is out of date, redo it".
+description: Draft a private event's proposal, banquet event order (BEO) or contract in Excellent from the event's own facts and the venue's own menu prices, for a person to review, finalize and send in Excellent; and reword the automatic emails Excellent sends around an event, for a person to publish. Use for "build the BEO for the Adler wedding", "draft a proposal for this event", "generate the contract for Saturday's party", "the BEO is out of date, redo it", "our auto-reply to new inquiries is too stiff", "make the deposit reminder friendlier".
 ---
 
 # Build event documents
@@ -37,3 +37,19 @@ what was staged (title, type, the menu lines and the client total the answer sta
 
 End with the link and one line: "This is a draft. Open it in Excellent to check it, then finalize it there;
 nothing reaches the guest until you share or send it."
+
+## 4. Reword an automatic event email (if asked)
+
+`draft_event_email_template` stages new words for one of the emails Excellent sends on its own: `email` is
+`prospect_reply` (the reply to a new inquiry), `signature_request`, `signature_followup`, `event_reminder`,
+`deposit_due`, `hold_challenged` (a hold was challenged) or `lead_intake` (the team's new-inquiry alert).
+
+- Write `subject_en`, `body_en`, `subject_es` and `body_es` — all four; guests get the language they wrote in.
+  Show the wording first.
+- Placeholders in braces, like `{guest_name}`, must be ones that email offers, and a signature request keeps
+  its `{sign_link}`. If one is refused, ask the person which ones Settings ▸ Event emails lists for it.
+- It is refused when that email already has unpublished changes in Excellent, or when the words are exactly
+  the ones already live.
+
+Give back the review link. Guests keep getting the live email until a person publishes the new words in
+Excellent.

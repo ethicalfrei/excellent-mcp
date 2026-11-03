@@ -1,12 +1,13 @@
 ---
 name: staff-schedule-check
-description: Check a restaurant group's staff schedule in Excellent — who is on today, the week's coverage per venue, open shifts, stretches of opening hours nobody covers, scheduling warnings and what staff can't see yet. Use for "who's on tonight", "is the week covered", "any open shifts", "check next week's schedule", "add a closing server on Friday", "fill the open Saturday brunch shift".
+description: Check a restaurant group's staff schedule in Excellent — who is on today, the week's coverage per venue, open shifts, stretches of opening hours nobody covers, scheduling warnings and what staff can't see yet — add draft shifts, and correct a team member's role, venue or contact details (undoable). Use for "who's on tonight", "is the week covered", "any open shifts", "check next week's schedule", "add a closing server on Friday", "fill the open Saturday brunch shift", "Ana works at the Mission venue now".
 ---
 
 # Staff schedule check
 
-This skill reads, and can add draft shifts. It never publishes a week or tells staff anything: shifts it
-adds stay in the week's draft until a person publishes the week in Excellent.
+This skill reads, can add draft shifts, and on request corrects a team member's details (an undoable change).
+It never publishes a week or tells staff anything: shifts it adds stay in the week's draft until a person
+publishes the week in Excellent.
 
 ## 1. Collect
 
@@ -39,3 +40,16 @@ venue's clock (HH:MM; an end at or before the start runs past midnight), the `ro
 `staff_id` from the schedule tools' roster (leave it out for an open shift). Read each shift back before
 adding it. Give back the review link, and say staff see nothing until someone publishes the week in
 Excellent.
+
+## 4. Correct a team member (if asked)
+
+When a role or home venue on file is wrong ("Ana works at the Mission venue now", "Leo is a bartender, not a
+server"), find the person's id with `training_roster` (`match` their name), say the old and new values, and
+on a yes call `set_staff_details` with the `staff_id` and only the fields that change (`full_name`, `email`,
+`phone`, `role`, `location`). Give back the `change_id` and say it can be undone.
+
+- A new role or venue can assign the courses the group's standing rules give it: say so before.
+- Moving an email or phone off a verified sign-in address retires that proof, and such a change cannot be
+  undone here: say so and ask again before making it.
+
+To add someone, build or assign a course, or define and assign a competency, use the `train-the-team` skill.

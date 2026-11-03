@@ -2,8 +2,9 @@
 
 Ready-made workflows for restaurant groups on [Excellent](https://beexcellent.ai), the operating platform
 for private dining and events, marketing and staff. The plugin connects Claude to your Excellent workspace
-and adds fourteen skills that know how to answer the questions an events, marketing or operations lead asks
-every week, using Excellent's own tools.
+and adds seventeen skills that know how to answer the questions an events, marketing or operations lead asks
+every week, using Excellent's own tools — the connector's 73: 71 for your group's records (20 that read, 20
+that draft, 31 that make changes you can undo) and two free read tools.
 
 You ask as yourself, with your own Excellent role. Claude reads your group's live data, stages drafts for a
 person to review and decide in Excellent, and — on a connection you allowed to — makes changes you can undo.
@@ -26,19 +27,27 @@ person to review and decide in Excellent, and — on a connection you allowed to
 | `build-event-documents` | "Build the BEO for the Adler wedding." |
 | `review-drafts` | "What's waiting for my approval?" |
 | `undo-a-change` | "Undo that." / "What did you change in Excellent?" |
+| `train-the-team` | "Add Maria as a server and build a wine-service course from our SOPs." |
+| `build-partner-documents` | "Draft the Q3 investor update." / "Build a pro forma for a second location." |
+| `import-a-list` | "Import these contacts from our old system." |
 
 ## What it will and won't do
 
-- **Drafts** go to Excellent for a person: replies to inquiries, proposals, BEOs and contracts, invoices,
-  thank-you cards, posts and guest emails, pre-shift notes and shifts. Each answer carries a review link that
-  works only for you, signed in to Excellent; nothing is sent, published, finalized or shared until you decide
-  it there.
-- **Changes** (`book-this-inquiry`, `move-the-pipeline`, and the add-a-shift or add-staff steps) commit in
-  Excellent as you, one narrow change at a time, only on a connection approved with change access. Claude
-  says what it will change before it does, and every change returns a `change_id` that `undo` puts back for
-  30 days unless the record has changed since.
+- **Drafts** go to Excellent for a person: replies to inquiries, proposals, BEOs and contracts, invoices and
+  their payment schedules, thank-you cards, posts and guest emails, pre-shift notes and shifts, training
+  courses, event emails, Partner pro formas, pitch decks and investor updates, and staged imports. Claude can
+  also revise a post, a campaign or an invoice that is still a draft. Each answer carries a review link that
+  works only for you, signed in to Excellent; nothing is sent, published, finalized, shared or added until you
+  decide it there.
+- **Changes** (`book-this-inquiry`, `move-the-pipeline`, `train-the-team`, and the change steps in the space
+  check, prep sheet, staff schedule, marketing week and Partner skills) commit in Excellent as you, one narrow
+  change at a time, only on a connection approved with change access. Claude says what it will change before
+  it does, and every change returns a `change_id` that `undo` puts back, once, for 30 days unless the record
+  has changed since.
+- In Partner documents Claude writes the words and Excellent computes every figure from your own records; a
+  number in Claude's text never becomes a figure in a table.
 - It never sends an email or text, takes or records a payment, publishes anything, approves its own drafts,
-  deletes a record or changes settings. Those stay with a person in Excellent.
+  commits an import, deletes a record or changes settings. Those stay with a person in Excellent.
 - Each tool needs the access your connection was approved with (read; drafts; changes) and the role in
   Excellent the same action needs in the app; without them the tool refuses and says why.
 

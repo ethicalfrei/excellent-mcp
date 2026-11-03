@@ -1,6 +1,6 @@
 ---
 name: book-this-inquiry
-description: Turn one private-event or catering inquiry in Excellent into a booking — convert the lead to an event, check which rooms fit and are free, book the room (or queue a hold), and draft the reply to the guest for a person to send. Use for "book this inquiry", "book the Adler inquiry into the Garden Room", "turn this lead into an event", "hold the terrace for the Kim party".
+description: Turn one private-event or catering inquiry in Excellent into a booking — convert the lead to an event, check which rooms fit and are free, book the room (or queue a hold), or turn the guest's hold into the event, and draft the reply to the guest for a person to send. Use for "book this inquiry", "book the Adler inquiry into the Garden Room", "turn this lead into an event", "hold the terrace for the Kim party", "the Kims are ready, book their hold".
 ---
 
 # Book this inquiry
@@ -25,6 +25,13 @@ for the time asked, each with its free stretch on the venue's clock. If a hold i
 and when it lapses. A free stretch is not a reservation until the next step.
 
 ## 3. Make the booking (on a yes)
+
+**If the guest already holds the room** (a hold in their name from earlier), `book_room` would be refused over
+it: convert the hold instead. `convert_hold_to_event` with the `hold_id` (from `space_availability` or
+`agenda`), the inquiry's `party_size` and a `title` makes a tentative event in the hold's room and window,
+its holder the host. Don't also convert the lead, which would make a second event; the inquiry is not linked
+to the new event, so say so and offer to move it to `qualified` with `set_lead_status`. It is refused while
+another hold is ahead of the guest's, or once the hold has lapsed. Otherwise:
 
 1. `convert_lead_to_event` with the `lead_id` — the event is created at the lead stage, its host the contact
    holding the inquiry's email. A lead converted already answers its event; use that one.
