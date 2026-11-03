@@ -17,7 +17,7 @@ drafts for your review, and — when you allow it — make everyday changes you 
 | Excellent Reference (free) | `https://beexcellent.ai/api/mcp/public` (Streamable HTTP) | None | `ai.beexcellent/reference` |
 
 - **Docs:** [beexcellent.ai/mcp](https://beexcellent.ai/mcp)
-- **Tools:** the signed-in connector lists 72 tools — 70 for your group's records (19 that read, 20 that
+- **Tools:** the signed-in connector lists 73 tools — 71 for your group's records (20 that read, 20 that
   draft, 31 that make changes you can undo) and the free server's two read tools.
 - **Claude plugin:** [`plugins/excellent`](plugins/excellent) adds seventeen ready-made workflows on top of the
   connector.
@@ -31,6 +31,8 @@ is nothing to install or run.
   nobody has answered
 - One event in full: host and contacts, menu (and where the contract, proposal and BEOs disagree),
   documents and signatures, invoices, installments and payments, and its seating and custom fields
+- One invoice in full: every line, the totals, deposit and amount paid, its payment schedule, and whether it
+  can still be revised
 - Which rooms fit a party size and when they are free on a given day
 - Search across events, leads, contacts, invoices, documents and rooms
 - Lists of events, leads, contacts, rooms, invoices and documents

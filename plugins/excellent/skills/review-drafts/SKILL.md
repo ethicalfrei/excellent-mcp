@@ -36,5 +36,6 @@ One line per draft: what it is, what the person will be asked, and the link:
 - import — keep it to review (each row is checked and the import committed on its own review page) or discard.
 
 If the person wants a post, campaign or invoice changed before deciding, revise it (the `marketing-week` and
-`money-owed` skills). End with: "Nothing is approved, published, sent or added until you decide it on
+`money-owed` skills; an invoice is read in full with `get_invoice` first, and revised only while its
+`revisable` is true). End with: "Nothing is approved, published, sent or added until you decide it on
 Excellent's page."

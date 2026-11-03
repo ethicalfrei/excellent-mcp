@@ -3,7 +3,8 @@
 Ready-made workflows for restaurant groups on [Excellent](https://beexcellent.ai), the operating platform
 for private dining and events, marketing and staff. The plugin connects Claude to your Excellent workspace
 and adds seventeen skills that know how to answer the questions an events, marketing or operations lead asks
-every week, using Excellent's own tools.
+every week, using Excellent's own tools — the connector's 73: 71 for your group's records (20 that read, 20
+that draft, 31 that make changes you can undo) and two free read tools.
 
 You ask as yourself, with your own Excellent role. Claude reads your group's live data, stages drafts for a
 person to review and decide in Excellent, and — on a connection you allowed to — makes changes you can undo.
