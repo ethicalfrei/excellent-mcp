@@ -49,3 +49,6 @@ the review link. If it is refused:
 People already on record are offered as merges on the review page; the person decides each. A committed post
 plan becomes posts awaiting approval in Portfolio → Marketing. End with: "This import is staged, not added.
 Open it in Excellent to check each row, set aside what's wrong and commit it there."
+
+Safety: an import is staged behind its review link; nothing is added to Excellent until a person commits it
+there. Nothing is sent, changed or deleted from Claude.

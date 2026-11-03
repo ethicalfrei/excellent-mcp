@@ -11,7 +11,7 @@
     {
       "name": "excellent",
       "source": "./plugins/excellent",
-      "description": "Ready-made workflows for restaurant groups on Excellent: the morning brief, lead follow-up and booking an inquiry, moving the pipeline, space checks and room blocks, event prep sheets and BEOs, thank-you cards, the marketing week, money owed, the weekly owner report, the staff schedule and training, Partner documents, importing a list, reviewing drafts and undoing a change.",
+      "description": "Ready-made workflows for restaurant groups on Excellent: the morning brief and pre-shift note across venues, lead follow-up and replies to inquiries, booking an inquiry, moving the pipeline, private-event space checks and room blocks, event prep sheets with seating, BEOs and event emails, thank-you cards, the marketing week, money owed and invoices, the owner's weekly report and Monday recap, the staff schedule and shifts, training the team, Partner pro formas, pitch decks and investor updates, importing a list, reviewing drafts and undoing a change. Uses the Excellent connector's 73 tools (71 for your group's records, plus 2 free). Drafts go to Excellent for a person to decide; changes can be undone.",
       "category": "productivity",
       "homepage": "https://beexcellent.ai/mcp"
     }

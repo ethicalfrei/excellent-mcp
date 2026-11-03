@@ -68,3 +68,7 @@ public signup page: members are added in Excellent, with the consent the restaur
 ## 6. Hand off
 
 End with: "These are drafts in Portfolio → Marketing. Nothing goes out until you approve it there."
+
+Safety: posts and emails are drafts behind their review links; only Excellent's own engine sends, once a person
+approves. A new guest list is made only on the person's yes and returns a `change_id` that `undo` puts back,
+once, for 30 days. Nothing is published, emailed, charged or deleted from Claude.

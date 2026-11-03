@@ -53,3 +53,6 @@ nothing reaches the guest until you share or send it."
 
 Give back the review link. Guests keep getting the live email until a person publishes the new words in
 Excellent.
+
+Safety: every document and email wording is a draft behind its review link. Nothing is finalized, shared, sent
+or published from Claude, and nothing is changed, charged or deleted.

@@ -56,3 +56,7 @@ only; nothing is sent to them.
 
 End with the link and one line: "This is a draft. Open it in Excellent to check the figures and the words, then
 publish it there; nothing is shared with an investor until you do."
+
+Safety: the documents are drafts behind their review link; adding an investor happens only on the person's yes
+and returns a `change_id` that `undo` puts back, once, for 30 days. Nothing is published or sent to an investor
+from Claude, and nothing is deleted.

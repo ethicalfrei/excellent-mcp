@@ -47,3 +47,6 @@ offer what would work. Never retry around a refusal.
 
 List each change with its `change_id`. If the person asks to take one back, use `undo` with that id (see the
 `undo-a-change` skill).
+
+Safety: each change is made only on the person's yes and returns a `change_id` that `undo` puts back, once, for
+30 days unless the record has changed since. Nothing is sent to a guest, charged or deleted.

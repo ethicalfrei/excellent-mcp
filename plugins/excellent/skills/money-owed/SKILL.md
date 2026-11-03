@@ -1,6 +1,6 @@
 ---
 name: money-owed
-description: A digest of what's still owed on events in Excellent — deposits and installments coming due or overdue, partly paid and unpaid invoices, by venue and event date, one invoice in full — and draft, correct or schedule a draft invoice for a person to send. Use for "which deposits are outstanding", "unpaid invoices", "who owes us money", "payments due this week", "draft the invoice for the Adler wedding", "fix the tax on that draft invoice", "split it into a deposit and a balance".
+description: A digest of what's still owed on events in Excellent — deposits and installments coming due or overdue, partly paid and unpaid invoices, by venue and event date, one invoice in full — and draft, correct or schedule a draft invoice for a person to send. Use for "which deposits are outstanding", "unpaid invoices", "who owes us money", "payments due this week", "draft the invoice for the Adler wedding", "invoice the Patel dinner", "bill the Friday buyout", "fix the tax on that draft invoice", "split it into a deposit and a balance".
 ---
 
 # Money owed digest
@@ -40,11 +40,15 @@ happens in Excellent.
 ## 3. Draft a missing invoice (if asked)
 
 For a booked event with no invoice, `get_event` shows what was agreed (the contract's or proposal's menu and
-client total). Draft the invoice with `draft_invoice`: the `event_id`, its `lines` (each a `label`, a whole
+client total). If the event already has an invoice, don't draft a second one: read it with `get_invoice` and
+correct it (step 4). If the agreed document says some prices are still to be confirmed, or no tax and service
+rates are set yet, its total is partial: say so and ask for the missing figures. Draft the invoice with
+`draft_invoice`: the `event_id`, its `lines` (each a `label`, a whole
 `qty` and a `unit_price_minor` in cents, taken from what was agreed — never an invented price), and any
 `tax_minor` / `fee_minor` the agreement states. Excellent computes the totals and the deposit from the
 group's deposit schedule. Give back the figures and the review link: the person checks it and sends it from
-the invoice page in Excellent. Nothing is sent from here.
+the invoice page in Excellent. Nothing is sent from here. To find the link again, `get_review_link` with `kind`
+`invoice` and the invoice's `id`.
 
 ## 4. Correct or schedule a draft invoice (if asked)
 
@@ -67,3 +71,6 @@ An invoice that was sent, paid, frozen or voided is left as it is: a sent invoic
 If the answer says the draft changed while this was being prepared, read it again with `get_invoice` and
 rebuild the change from what it returns before retrying. Give back the figures and the review link; nothing
 is sent until the person sends it from the invoice page.
+
+Safety: invoices stay drafts behind their review link. Nothing is sent to a guest, charged or recorded as paid
+from Claude, and nothing is deleted.

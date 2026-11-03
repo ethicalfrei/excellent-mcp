@@ -55,3 +55,6 @@ Windows are ISO instants with the venue's offset.
   another confirmed booking or a block. An event with no room yet is booked first (`book-this-inquiry`).
 
 Never work around a refusal: say why in plain words and offer another room or time.
+
+Safety: the check only reads. A block, a closure or an extra room is made only on the person's yes, and each
+returns a `change_id` that `undo` puts back, once, for 30 days. Nothing is booked for a guest, sent or deleted.

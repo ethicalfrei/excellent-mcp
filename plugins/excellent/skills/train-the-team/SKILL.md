@@ -1,6 +1,6 @@
 ---
 name: train-the-team
-description: Onboard and train a restaurant group's team in Excellent — add a new hire to the training roster, build a training course from the group's own lessons and SOPs, define and assign on-the-floor competencies, assign courses and correct a team member's details — each change undoable and each course a draft for a person to publish. Use for "add Maria as a server at the Mission venue", "build a wine-service course from our SOPs", "assign the allergen course to the new bartenders", "add a decanting competency for the bar team".
+description: Onboard and train a restaurant group's team in Excellent — add a new hire to the training roster, build a training course from the group's own lessons and SOPs, define and assign on-the-floor competencies, assign courses and correct a team member's details — each change undoable and each course a draft for a person to publish. Use for "add Maria as a server at the Mission venue", "build a wine-service course from our SOPs", "assign the allergen course to the new bartenders", "add a decanting competency for the bar team", "who's on the training roster?", "put bar opening on Sam's plate".
 ---
 
 # Train the team
@@ -15,17 +15,20 @@ for that exact change. **After every change,** give the `change_id` it returned 
 
 `training_roster` (with `match` to narrow by name) lists the active team members (id, name, role, home venue,
 status), the published courses and the competencies, with the ids the steps below take. For course material,
-`list_documents` with `type` `lesson`, `sop` or `knowledge`; only finalized ones can join a course.
+`list_documents` with `type` `lesson`, `sop` or `knowledge`; only finalized ones can join a course. The roster
+does not show course progress or scores: for those, send the person to the roster in Excellent rather than
+guessing.
 
 ## 2. Onboard someone
 
 1. `add_staff_member` with `full_name` and what the person gives: `email`, `phone`, `employee_ref`,
    `started_on`, `role` (server, bartender, host, busser, runner, line_cook, prep_cook, dishwasher, sous_chef,
    chef or manager), home venue `location` (from `overview`) and a free-text `position`. The courses the
-   group's standing rules give that role or venue are assigned at once.
-2. Anything else: `assign_course` with the `staff_id`, a published `course_id` and an optional `due_on`;
-   `assign_competency` the same way with a `competency_id`. One they already have answers that assignment and
-   changes nothing.
+   group's standing rules give that role or venue are assigned at once: say which ones came back.
+2. Anything else: agree who gets what and by when, and read the list back (each person, the course or
+   competency, the due date). Then `assign_course` with the `staff_id`, a published `course_id` and an
+   optional `due_on`; `assign_competency` the same way with a `competency_id`. One they already have answers
+   that assignment and changes nothing.
 
 For a whole staff list at once, stage it as a roster import with the `import-a-list` skill.
 
@@ -54,3 +57,7 @@ and ask again first.
 
 List each change with its `change_id`, and each course's review link. End with: "Each change can be undone
 (ask me, or say undo); a course reaches staff only once it is published in Excellent and assigned."
+
+Safety: no change is made without the person's yes, and each returns a `change_id` that `undo` puts back, once,
+for 30 days unless the record has changed since (`recent_changes` lists them). A course waits behind its review
+link. Nobody is messaged from Claude, no sign-off is recorded and nothing is deleted.

@@ -59,3 +59,7 @@ the `change_id` it returned and say it can be undone.
 - **Custom field:** `set_event_custom_field` with the `event_id`, the field's key from `event_setup` as
   `field`, and `value` as text matching the field's type — text, a number, `true` or `false`, a `YYYY-MM-DD`
   date, or one of a select field's options. Leave `value` out to clear it; every other field keeps its value.
+
+Safety: the sheet only reads. A table's seats or a custom field change only on the person's yes, and each
+change returns a `change_id` that `undo` puts back, once, for 30 days unless the record has changed since.
+Nothing is sent, signed, charged or deleted.
