@@ -39,3 +39,6 @@ If the person wants a post, campaign or invoice changed before deciding, revise 
 `money-owed` skills; an invoice is read in full with `get_invoice` first, and revised only while its
 `revisable` is true). End with: "Nothing is approved, published, sent or added until you decide it on
 Excellent's page."
+
+Safety: this skill only reads and hands back review links. Nothing is approved, published, sent, committed or
+discarded from Claude.

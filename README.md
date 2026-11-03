@@ -23,7 +23,8 @@ drafts for your review, and — when you allow it — make everyday changes you 
   connector.
 
 This repository holds documentation and the Claude plugin only. The connector is a hosted service, so there
-is nothing to install or run.
+is nothing to install or run. Everything here is published from Excellent's own codebase on each release, so a
+change made in this repository directly is overwritten by the next one; write to support instead.
 
 ## What you can ask for
 

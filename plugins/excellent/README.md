@@ -13,15 +13,15 @@ person to review and decide in Excellent, and — on a connection you allowed to
 
 | Skill | Ask it like |
 |---|---|
-| `morning-brief` | "What's on today across our venues?" |
-| `lead-follow-up` | "Which inquiries haven't we answered, and do we have room for them?" |
+| `morning-brief` | "What's on today across our venues?" / "Build tomorrow's pre-shift note." |
+| `lead-follow-up` | "Which inquiries haven't we answered?" / "Answer the new inquiry for 40 on the 14th." |
 | `private-event-space-check` | "Is the Garden Room free next Saturday evening for 60?" |
 | `event-prep-sheet` | "Prep sheet for this week's events." |
 | `thank-you-cards` | "Draft a thank-you card for last Saturday's rehearsal dinner." |
 | `marketing-week` | "Plan this week's posts and draft an Instagram post about the patio room." |
-| `money-owed` | "Which deposits are still outstanding?" |
-| `weekly-owner-report` | "How are we pacing against this year's goal, and which location is behind?" |
-| `staff-schedule-check` | "Is next week covered? Any open shifts?" |
+| `money-owed` | "Which deposits are still outstanding?" / "Draft the invoice for the Patel dinner." |
+| `weekly-owner-report` | "Monday recap: what's this week look like?" / "Which location is behind?" |
+| `staff-schedule-check` | "Is next week covered?" / "Fill the open Saturday brunch shift." |
 | `book-this-inquiry` | "Book the Kim inquiry into the Garden Room for Saturday." |
 | `move-the-pipeline` | "Move this lead to tentative." / "They're 80 now, not 60." |
 | `build-event-documents` | "Build the BEO for the Adler wedding." |

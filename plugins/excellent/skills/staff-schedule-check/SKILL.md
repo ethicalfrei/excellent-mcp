@@ -1,6 +1,6 @@
 ---
 name: staff-schedule-check
-description: Check a restaurant group's staff schedule in Excellent — who is on today, the week's coverage per venue, open shifts, stretches of opening hours nobody covers, scheduling warnings and what staff can't see yet — add draft shifts, and correct a team member's role, venue or contact details (undoable). Use for "who's on tonight", "is the week covered", "any open shifts", "check next week's schedule", "add a closing server on Friday", "fill the open Saturday brunch shift", "Ana works at the Mission venue now".
+description: Check a restaurant group's staff schedule in Excellent — who is on today, the week's coverage per venue, open shifts, stretches of opening hours nobody covers, scheduling warnings and what staff can't see yet — add draft shifts, and correct a team member's role, venue or contact details (undoable). Use for "who's on tonight", "is the week covered", "any open shifts", "check next week's schedule", "add a closing server on Friday", "fill the open Saturday brunch shift", "staff next week", "build the schedule for the patio party", "Ana works at the Mission venue now".
 ---
 
 # Staff schedule check
@@ -35,11 +35,14 @@ End with the three most important fixes for a person to make in Excellent, most 
 
 ## 3. Fill a gap (if asked)
 
-To cover an open stretch, `draft_shift` with the `location`, the venue `date`, `start` and `end` on the
-venue's clock (HH:MM; an end at or before the start runs past midnight), the `role`, and the person's
-`staff_id` from the schedule tools' roster (leave it out for an open shift). Read each shift back before
-adding it. Give back the review link, and say staff see nothing until someone publishes the week in
-Excellent.
+Propose the shifts as a list first: day, start and end on the venue's clock (24-hour), role, and the person
+from the roster `schedule_week` returns, or open when nobody is named yet. Ask the person to adjust it, and
+don't schedule anyone they haven't agreed to.
+
+Then, once per agreed shift, `draft_shift` with the `location`, the venue `date`, `start` and `end` (HH:MM; an
+end at or before the start runs past midnight), the `role`, the person's `staff_id` (leave it out for an open
+shift), and an optional `break_minutes` and `note`. Call `schedule_week` again to show the week as it now
+stands. Give back the review link, and say staff see nothing until someone publishes the week in Excellent.
 
 ## 4. Correct a team member (if asked)
 
@@ -53,3 +56,7 @@ on a yes call `set_staff_details` with the `staff_id` and only the fields that c
   undone here: say so and ask again before making it.
 
 To add someone, build or assign a course, or define and assign a competency, use the `train-the-team` skill.
+
+Safety: shifts go into the week's draft behind its review link; nobody sees them until a person publishes the
+week. A correction to a team member is made only on the person's yes and returns a `change_id` that `undo`
+puts back, once, for 30 days. Nothing is sent to staff, published, paid or deleted from Claude.

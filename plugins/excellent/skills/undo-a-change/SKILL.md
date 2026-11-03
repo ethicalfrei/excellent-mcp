@@ -31,3 +31,6 @@ It is refused, and the change stands, when:
 - the person no longer has the permission the change needed.
 
 Say what was undone, in the summary's words. Undo only what the person asks for, one change at a time.
+
+Safety: `undo` reverses only the change the person names, one at a time, within 30 days, and refuses rather
+than overwrite a later change. Nothing is sent, charged or deleted beyond putting that change back.

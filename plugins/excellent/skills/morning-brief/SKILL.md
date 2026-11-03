@@ -1,6 +1,6 @@
 ---
 name: morning-brief
-description: The morning brief for a restaurant group on Excellent — today's and tomorrow's events per venue, holds that need a decision, payments coming due, unanswered inquiries and who is on shift. Use for "what's on today", "morning brief", "what needs me today", "give me the rundown across our venues", "draft today's pre-shift note".
+description: The morning brief for a restaurant group on Excellent — today's and tomorrow's events per venue, holds that need a decision, payments coming due, unanswered inquiries and who is on shift — and any day's pre-shift note, staged as a draft for a manager to publish. Use for "what's on today", "morning brief", "what needs me today", "give me the rundown across our venues", "draft today's pre-shift note", "build tomorrow's pre-shift", "line-up notes for Saturday", "what should the team know before service tonight".
 ---
 
 # Morning brief across venues
@@ -44,7 +44,20 @@ skill), or check the staff week (the staff-schedule-check skill).
 
 ## Pre-shift note (if asked)
 
-If the person wants today's pre-shift note, write it from what the brief found (the events, guest counts,
-VIPs and timings) and show it first. Then stage it with `draft_preshift_note` (`date`, `body_en`, and
-`body_es` when the team reads Spanish). A day that already has a note is left as it is. Give back the review
-link: the note reaches staff only when a person publishes it in Excellent.
+1. Settle the day (today after a brief; tomorrow when asked on its own) and, for a group with several venues,
+   which venue.
+2. `agenda` with `from` that day and `days: 1` for its bookings. For each event, `get_event` for its party
+   size, rooms, host and the menu its documents state; where those documents disagree on an item, flag it for
+   the manager rather than picking one.
+3. `schedule_today` with that `date` for who is on, in which role, and any open shift nobody has yet.
+4. Ask the person for what the records don't hold: specials, 86'd items, allergies they know of, VIPs, the
+   focus for the night. Never invent a guest detail.
+5. Write it in short lines a server can read in a minute: events with times, rooms and headcounts; menu notes;
+   who is on and open shifts; the manager's points. Show it first, and offer a Spanish version.
+6. Stage it with `draft_preshift_note` (`date`, `body_en`, and `body_es` when the team reads Spanish). If that
+   day already has a note, draft or published, Excellent leaves it exactly as it is and stages nothing: say so.
+
+Give back the review link: the note reaches staff only when a manager publishes it in Excellent.
+
+Safety: the brief only reads; the pre-shift note is a draft behind its review link. Nothing reaches staff or a
+guest from Claude, and nothing is booked, changed, sent or deleted.
