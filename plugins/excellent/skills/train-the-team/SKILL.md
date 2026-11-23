@@ -14,7 +14,9 @@ for that exact change. **After every change,** give the `change_id` it returned 
 ## 1. Read the roster
 
 `training_roster` (with `match` to narrow by name) lists the active team members (id, name, role, home venue,
-status), the published courses and the competencies, with the ids the steps below take. For course material,
+status, hire date, the area that role works in — front of house, back of house or management and the back
+office — the languages they speak and their uniform size), the published courses and the competencies, with
+the ids the steps below take. For course material,
 `list_documents` with `type` `lesson`, `sop` or `knowledge`; only finalized ones can join a course. The roster
 does not show course progress or scores: for those, send the person to the roster in Excellent rather than
 guessing.

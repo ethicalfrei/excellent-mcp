@@ -17,8 +17,8 @@ drafts for your review, and — when you allow it — make everyday changes you 
 | Excellent Reference (free) | `https://beexcellent.ai/api/mcp/public` (Streamable HTTP) | None | `ai.beexcellent/reference` |
 
 - **Docs:** [beexcellent.ai/mcp](https://beexcellent.ai/mcp)
-- **Tools:** the signed-in connector lists 73 tools — 71 for your group's records (20 that read, 20 that
-  draft, 31 that make changes you can undo) and the free server's two read tools.
+- **Tools:** the signed-in connector lists 87 tools — 85 for your group's records (26 that read, 21 that
+  draft, 38 that make changes you can undo) and the free server's two read tools.
 - **Claude plugin:** [`plugins/excellent`](plugins/excellent) adds seventeen ready-made workflows on top of the
   connector.
 
@@ -64,8 +64,9 @@ taking payments and deleting anything stay with a person in Excellent.
 
 The **free reference server** needs no account. It answers how Excellent works from its own help text
 (`excellent_help`), searches Excellent's public feature, comparison and blog pages
-(`search_excellent_pages`), and can start a sample workspace with a one-time link for a person to claim
-(`start_excellent_workspace`). It reads no restaurant group's data.
+(`search_excellent_pages`), can start a sample workspace with a one-time link for a person to claim
+(`start_excellent_workspace`), and, for a diner, can find venues that accept inquiries from AI assistants
+(`find_event_venues`) and send one an inquiry (`send_event_inquiry`). It reads no restaurant group's data.
 
 ## Example prompts
 
