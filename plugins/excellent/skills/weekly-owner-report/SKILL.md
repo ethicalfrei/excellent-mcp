@@ -10,7 +10,7 @@ Read-only. This skill changes nothing in Excellent.
 ## 1. Collect
 
 1. `report` with `period: "month"`, and again with `period: "year"` (or the window the person asks for:
-   month, quarter, year or all). It returns revenue (booked, collected, outstanding), pace against the last
+   month, last_month, quarter, last_quarter, year, last_year or all — each a calendar window). It returns revenue (booked, collected, outstanding), pace against the last
    period with an on-track verdict and the percentage of the annual goal, the pipeline by stage and win rate,
    the lead funnel, booking sources and the per-location rollup.
 2. `overview` — the group's headline figures and venues.

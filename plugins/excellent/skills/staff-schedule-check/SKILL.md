@@ -15,7 +15,9 @@ publishes the week in Excellent.
   on (person, role, start and end on the venue's clock, break), the open shifts and each shift's warnings.
 - A week: `schedule_week` with any `date` in the week wanted (default this week). Per venue and day it gives
   shifts, people, open shifts, planned minutes, shifts by role and the `uncovered` stretches of opening hours
-  (null when the venue has no hours on file).
+  (null when the venue has no hours on file), plus `event_need` (needed vs scheduled per role for that day's
+  events) and `coverage`. Only a coverage of "covered" means covered; "hours_ok_events_short" means every opening
+  hour has someone but an event is short of staff — say which roles, from `event_need`.
 - If events are on, `agenda` for the same days shows the bookings and party sizes the staff is there for.
 
 If the tool answers that this part of Excellent is not switched on, say so and stop.
@@ -26,7 +28,8 @@ Per venue:
 
 - **Publish state** — draft (staff can't see it), published, or published with changes staff don't see yet
   (`unpublished_changes`). Say how many.
-- **Gaps** — open shifts and uncovered stretches, by day and time on the venue's clock.
+- **Gaps** — open shifts and uncovered stretches, by day and time on the venue's clock, and events short of
+  staff (role, needed vs scheduled) — a day is never "covered" while an event on it is short.
 - **Warnings** — in plain words: overlap, double booked at another venue, short rest between shifts,
   inactive or archived staff still scheduled.
 - **Busy days** — days with large events next to the people scheduled by role.
